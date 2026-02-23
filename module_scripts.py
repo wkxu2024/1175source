@@ -24994,13 +24994,13 @@ scripts = [
       (try_end),
       (assign, "$g_player_party_morale_modifier_party_size", ":num_men"),
 
-      (store_skill_level, ":player_leadership", "skl_leadership", "trp_player"),# 将玩家统御技能等级存入":player_leadership"
+      (store_skill_level, ":player_leadership", "skl_leadership", "trp_player"),
 
       (try_begin),
         (eq, "$players_kingdom", "fac_player_supporters_faction"),
         (faction_get_slot, ":cur_faction_king", "$players_kingdom", slot_faction_leader),
         (eq, ":cur_faction_king", "trp_player"),
-        (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 15),# 当玩家是国王时统御每级增加15士气，否则加12
+        (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 15),
       (else_try),
         (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 12),
       (try_end),
