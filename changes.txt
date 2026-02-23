@@ -1,0 +1,500 @@
+# -*- coding: utf-8 -*-
+如果要在代码中使用中文，可把上面一行加入文件开头
+
+我的主页: https://bbs.mountblade.com.cn/?3713555
+
+感谢以下朋友的代码、教程与翻译: 
+中文站: @小虎仔,@rubik,@战争傀儡阿格兰,@huagao,@aliang227,@野蛮人y,@lliihhaaoo,@心中飞翔,@oolonglgx,
+TaleWorlds: @GorillaGuerrilla,@Arris Rumi,
+bilibili: @遊说故我,@蔗糖王金飞,@海王三啸,@VincentsPalette,
+
+
+
+一·游戏优化与BUG修复: 
+
+0.
+使用的module system来源@小虎仔: 
+https://bbs.mountblade.com.cn/thread-2072055-1-1.html
+其中修复了一些对话错乱BUG，查看改动可在 module_dialogs,module_mission_templates 中搜索: #dgry_mod
+
+源代码目录管理方式来源@rubik: 
+https://bbs.mountblade.com.cn/thread-212227-1-1.html
+
+prsnt制作工具pos_tool来源@huagao: 
+https://bbs.mountblade.com.cn/thread-2099117-1-1.html
+
+大部分作弊菜单汉化来源@遊说故我: 
+https://www.bilibili.com/opus/377720151522509145
+
+1.
+略微优化了战利品算法，使获取战利品时将敌人按等级排序。
+参考代码@rubik: https://bbs.mountblade.com.cn/thread-108226-1-1.html
+相关改动在 module_scripts 中搜索: 
+###(((sort troops of enemy_party by level
+
+2.
+修复了战前受伤的敌人不计入战损的BUG。
+代码来源@rubik: https://bbs.mountblade.com.cn/thread-466617-1-1.html
+相关改动在 module_scripts 中搜索: 
+###(((add wounded troops of enemy to p_total_enemy_casualties
+
+3.
+修复了村战没有战利品和俘虏的BUG。
+代码来源@rubik: https://bbs.mountblade.com.cn/thread-478766-1-1.html
+相关改动在 module_mission_templates 中搜索: 
+###(((village_raid FIX
+
+4.
+修正了更换旗帜导致领主红白格子旗越来越多的问题。
+代码来源@rubik: https://bbs.mountblade.com.cn/thread-167671-1-1.html
+相关改动在 module_presentations 中搜索: 
+###(((give back the lord's banner
+
+5.
+修复了个别菜单选项过多时显示不全的BUG。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_game_menus 中搜索: 
+###(((minister_appoint NEW
+###(((castle_meeting NEW
+
+6.
+使执行完任务等待归队的NPC按离队顺序归队。
+我的代码: https://bbs.mountblade.com.cn/thread-2108266-1-1.html
+相关改动在 module_simple_triggers,module_triggers,module_parties 中搜索: 
+###(((npc_to_rejoin_party NEW
+
+7.
+为避免因城堡内人数过多而见不到某人，使城堡内的人以随机顺序刷出（首席大臣和玩家妻子除外）。
+我的代码: https://bbs.mountblade.com.cn/thread-2108427-1-1.html
+相关改动在 module_scripts 中搜索: 
+###(((enter_court NEW
+
+8.
+修复了劝降领主对话的一些BUG。
+相关改动在 module_dialogs 中搜索: 
+###(((lord_recruit_pledge FIX
+
+9.
+修复了两个长柄砍刀id相同的BUG ，并将为双手武器的改名为双手砍刀。
+相关改动在 module_items 中搜索: 
+###((("voulge"
+
+10.
+修复了劫狱时营救的领主与玩家敌对的BUG。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_mission_templates 中搜索: 
+###(((prison_break FIX
+
+11.
+战场人数太大时，由逃跑士兵影响士气算法导致卡顿的代码优化。
+参考代码@aliang227: https://bbs.mountblade.com.cn/thread-2086832-1-1.html
+      @野蛮人y: https://bbs.mountblade.com.cn/thread-2098668-1-1.html
+相关改动在 module_scripts 中搜索: 
+###(((courage_scores NEW
+
+12.
+修复了流放领主后城堡旗帜不变的BUG。
+相关改动在 module_scripts 中搜索: 
+###(((removing banner
+
+
+
+二·游戏功能增加：
+
+1.
+在村庄与城镇菜单可直接会见村长和镇长。修正了领军者中对话场景在野外的问题。
+代码来源@rubik: mod: Custom Commander
+      @GorillaGuerrilla: mod: BannerPage
+相关改动在 module_game_menus 中搜索: 
+###(((meet_with_village_elder
+###(((meet_with_guild_master
+
+2.
+在城镇菜单可直接和城堡内某人对话（和3一起保证入口不乱）。根据能否进入城堡分两种对话场景。
+相关改动在 module_game_menus,module_dialogs 中搜索: 
+###(((town_meeting
+
+3.
+城镇菜单中加入竞技大会与进入竞技场合并。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_game_menus 中搜索: 
+###(((join_tournament
+
+4.
+举办宴会时在城里休息可和参加的领主自动加关系。
+我的代码: https://bbs.mountblade.com.cn/thread-2108433-1-1.html
+相关改动在 module_triggers 中搜索: 
+###(((auto change relations during feast
+
+5.
+战后和本方参战领主自动加关系。
+代码来源@rubik: https://bbs.mountblade.com.cn/thread-2040974-1-1.html
+相关改动在 module_game_menus,module_scripts 中搜索: 
+###(((change_player_relation_with_lords_after_battle
+
+6.
+与领主见面后在其人物页显示性格。
+参考代码@rubik: https://bbs.mountblade.com.cn/thread-441600-1-1.html
+相关改动在 module_scripts,module_strings 中搜索: 
+###(((lord_reputation_type
+
+7.
+进入城堡时自动更换便装。
+代码来源@rubik: https://bbs.mountblade.com.cn/thread-460951-1-1.html
+相关改动在 module_scripts 中搜索: 
+###(((civilian cloth
+
+8.
+大地图右键城镇和村庄显示友好度。
+代码来源@lliihhaaoo: https://bbs.mountblade.com.cn/thread-54904-1-1.html
+相关改动在 module_scripts 中搜索: 
+###(((context_menu_relation
+
+9.
+使用了领军者的旗帜选择界面。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_presentations 中搜索: 
+###(((banner_selection NEW
+
+10.
+加入了新的旗帜，更改了重复的旗帜。
+Resource来源@rubik: mod: Custom Commander
+相关改动在 module_meshes,module_scene_props,module_map_icons,module_scripts 中搜索: 
+###(((banners NEW
+
+11.
+给每个NPC指定一个新旗帜。
+相关改动在 module_scripts,module_constants,module_dialogs 中搜索: 
+###(((npc_banners
+
+12.
+玩家和NPC有2套武器可切换使用。
+代码来源@rubik: https://bbs.mountblade.com.cn/thread-516151-1-1.html
+相关改动在 module_game_menus,module_scripts,module_constants 中搜索: 
+###(((toggle_weapons
+
+13.
+统一管理物品与同伴装备的界面，大地图按B打开。修正了领军者中物品换位置数量回满的BUG。
+已知BUG（不影响游玩）: 手动更换装备后下方人物模型的装备不会变。装备栏的物品纹章只会显示玩家的旗帜。物品数量无法正确显示。提示框穿模。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_dialogs,module_scripts,module_constants,module_simple_triggers,module_parties,module_meshes 中搜索: 
+###(((manage_inventory
+
+14.
+所有物品信息界面，增加了查看前缀等功能。作弊可获得任意前缀的任意物品。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_strings, 中搜索: 
+###(((all_items
+
+15.
+更详细的物品信息。解决了领军者中presentation里不显示物品难度的问题。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_scripts 中搜索: 
+###(((item extra text
+
+16.
+所有兵种信息界面。作弊可招募指定数量的士兵，可更改与英雄的关系。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_strings,module_scripts 中搜索: 
+###(((all_troops
+
+17.
+查看兵种树。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_scripts 中搜索: 
+###(((troop_trees
+其他改动文件: module.ini, game_variables.txt, ui.csv
+
+18.
+加入了领军者的阵营与领主关系界面。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_meshes 中搜索: 
+###(((relations_report
+
+19.
+自动交易系统。修正了领军者中自动购买多个物品与手动购买价格不一致的BUG。
+原版交易BUG（未修复）: 购买再退回或出售再收回货物价格会降低。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_scripts,module_strings,module_constants,module_meshes 中搜索: 
+###(((auto_tarde
+
+20.
+整理自己城堡驻军和俘虏的界面。
+参考代码@Arris Rumi: https://forums.taleworlds.com/index.php?threads/sorting-troops-for-m-b-warband.444461
+相关改动在 module_game_menus,module_presentations,module_scripts,module_constants, 中搜索: 
+###(((sort_troops
+
+21.
+按M打开战场小地图。大多数场景都能用，方便找人。修复了参考代码中死人后再打开地图背景消失的BUG。
+参考代码@rubik: https://bbs.mountblade.com.cn/thread-182415-1-1.html
+相关改动在 module_mission_templates,module_presentations,module_scripts 中搜索: 
+###(((battle_map
+
+22.
+Mod设置界面。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_game_menus,module_presentations,module_scripts,module_strings 中搜索: 
+###(((mod_options
+
+23.
+可向妻子询问本国领主的位置。
+相关改动在 module_dialogs 中搜索: 
+###(((spouse_talk:lord_talk_ask_location
+
+24.
+抓领主任务可选择交出的领主。
+相关改动在 module_dialogs 中搜索: 
+###(((capture_enemy_hero NEW
+
+25.
+自动收俘虏,任务要求优先,高等级优先。
+参考代码@rubik: https://bbs.mountblade.com.cn/thread-520832-1-1.html
+相关改动在 module_game_menus,module_presentations 中搜索: 
+###(((auto_take_captured_enemies
+
+26.
+一键卖出所有俘虏，任务要求俘虏除外。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_dialogs,module_scripts 中搜索: 
+###(((sell_all_prisoners
+
+27.
+向旅行者询问位置对话优化。
+相关改动在 module_dialogs 中搜索: 
+###(((tavern_traveler_companion_location_ask NEW
+###(((tavern_traveler_pretender_location
+
+28.
+当国王时与首席大臣对话可选择给自己的封地。
+相关改动在 module_dialogs 中搜索: 
+###(((minister_grant_self_fief_new
+
+29.
+支持复国者时打下的领地可以暂缓决定分封。
+相关改动在 module_dialogs 中搜索: 
+###(((center_captured_rebellion
+
+
+
+三·半作弊功能：
+对平衡性影响略大，或使游戏有点变味儿的功能。
+开启方法：打开作弊模式进入游戏，在命令行输入cheatmenu打开作弊选项，在扎营-mod菜单中点击-关闭DEBUG信息。此时除半作弊选项外的作弊选项已全部关闭。不想作弊游玩可以保存退出游戏，然后关闭作弊模式重进游戏。想再使用其他作弊选项可点击-打开DEBUG信息。
+
+1.
+放弃自己的封地。可在以下对话中选择：与首席大臣对话，与支持的复国者对话，与本国国王对话。
+相关改动在 module_dialogs,module_scripts 中搜索: 
+###(((relinquish_fief_minister
+###(((relinquish_fief_supported_pretender
+###(((relinquish_fief_lord
+
+2.
+可向旅行者询问所有NPC的位置。
+相关改动在 module_dialogs 中搜索: 
+###(((tavern_traveler_companion_new
+
+3.
+可向旅行者询问书籍商人和诗人的位置。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_dialogs,module_scripts 中搜索: 
+###(((location_bookseller
+###(((location_minstrel
+
+4.
+可向酒馆老板询问附近赎金经纪人和旅行者的位置。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_dialogs,module_scripts 中搜索: 
+###(((location_ransom_broker
+###(((location_tavern_traveler
+
+5.
+营地菜单检阅部队。
+相关改动在 module_game_menus 中搜索: 
+###(((camp_action_1
+
+6.
+更换旗帜。
+相关改动在 module_game_menus 中搜索: 
+###(((modify_banner
+
+
+
+四·作弊功能: 
+
+1.
+一键招募所有NPC。
+相关改动在 module_game_menus,module_scripts 中搜索: 
+###(((recruit_all_npcs
+
+2.
+一键劝降领主。
+相关改动在 module_dialogs 中搜索: 
+###(((lord_suggest_recruit
+
+3.
+强制和平与宣战。
+相关改动在 module_game_menus 中搜索: 
+###(((force_peace
+###(((force_war
+
+4.
+开始竞技大会。
+相关改动在 module_game_menus 中搜索: 
+###(((cheat_tournament
+
+5.
+显示所有强盗巢穴。
+代码来源@战争傀儡阿格兰: https://bbs.mountblade.com.cn/thread-2097261-1-1.html
+相关改动在 module_game_menus 中搜索: 
+###(((show_bandit_lair
+
+6.
+城镇与村庄作弊菜单调整。
+相关改动在 module_game_menus 中搜索: 
+###(((town_cheat
+###(((village_cheat
+
+7.
+ctrl+h回血的同时回满弹药，盾牌血量，马匹血量。
+参考代码@rubik: mod: Custom Commander
+相关改动在 module_mission_templates 中搜索: 
+###(((cheat_keys
+
+8.
+对话改变领主性格。
+相关改动在 module_dialogs 中搜索: 
+###(((lord_change_reputation_type
+
+9.
+移除所有的船。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_game_menus 中搜索: 
+###(((remove_ships
+
+10.
+禁止NPC抱怨。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_presentations 中搜索: 
+###(((npc_complaints
+
+11.
+设置领主与玩家战败后逃跑的概率。
+相关改动在 module_presentations,module_scripts 中搜索: 
+###(((hero_escape_after_defeat_chance
+
+12.
+禁止被玩家俘虏的领主逃跑。
+相关改动在 module_presentations,module_scripts 中搜索: 
+###(((prisoner_heroes_can_not_escape
+
+13.
+查看NPC的物品栏。
+代码来源@rubik: mod: Custom Commander
+相关改动在 module_dialogs 中搜索: 
+###(((member_inventory
+
+14.
+增加城镇和村庄好感。
+相关改动在 module_game_menus 中搜索: 
+###(((cheat_relation
+
+15.
+收回领主的封地。
+相关改动在 module_dialogs 中搜索: 
+###(((minister_revoke_fief
+
+16.
+给已经离开大陆的领主封地让他回来。
+相关改动在 module_dialogs 中搜索: 
+###(((minister_grant_fief_select_recipient_outside
+
+17.
+开关DEBUG信息。
+相关改动在 module_game_menus 中搜索: 
+###(((debug_message_off
+
+
+
+五·汉化错误修复: 
+
+1.game_strings: 
+str_npc16_backstory_b
+str_npc5_intel_mission
+str_npc6_intel_mission
+str_lord_info_string
+
+2.game_menus: 
+mno_continue_yes
+mno_continue_no
+mno_nurse_1
+mno_nurse_2
+翻译来源: @rubik
+
+3.dialogs: 
+dlga_pretender_progress:pretender_progress_2
+
+
+
+
+2025.3.23
+v1.01:
+
+〇·本MOD的修改: 
+
+1.修复了玩家自立没城堡时议会所在地无法分封的BUG。(二·28)
+
+三·半作弊功能: 
+
+7.给妻子换衣服。
+相关改动在 module_dialogs 中搜索: 
+###(((spouse_trade
+
+
+
+2025.5.5
+v1.02:
+
+〇·本MOD的修改: 
+
+1.半作弊模式下领主性格全部显示。(二·6)
+2.前缀影响计算script中补充stubborn对血量的影响，cracked对血量影响的修正。
+
+一·游戏优化与BUG修复: 
+
+13.修复了结婚时应与家庭成员加的关系错加给新娘的BUG。
+相关改动在 module_scripts 中搜索: 
+###(((family_relation NEW
+
+14.防止投奔玩家的领主在野外乱跑。否则他会同时出现在两个地方。
+相关改动在 module_simple_triggers 中搜索: 
+###(((travel_to_player_court
+
+
+
+2025.5.6
+v1.03:
+
+一·游戏优化与BUG修复: 
+
+1.修复了NPC2宣传对话3中文缺失的BUG，翻译来自@VincentsPalette
+相关改动在 module_strings 中搜索: 
+npc2_kingsupport_3
+
+
+
+2025.5.8
+v1.04
+
+一·游戏优化与BUG修复: 
+
+1.修复了与NPC4和5战斗中文对话错乱的BUG，翻译来自@VincentsPalette
+相关改动在 module_strings 中搜索: 
+npc5_turn_against
+
+2.修复了领主同意与拒绝叛乱中文对话错乱的BUG，翻译来自@VincentsPalette
+相关改动在 module_strings 中搜索: 
+rebellion_refuse
+
+
+五·汉化错误修复: 
+1.party_templates: 
+pt_kingdom_hero_party
