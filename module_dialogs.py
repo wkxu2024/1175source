@@ -20685,8 +20685,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"tavernkeeper_job_result_2", [], "I'll keep my ears open for other opportunities. You may want to ask again from time to time.", "close_window",[]],
 
 
-  ###(((location_ransom_broker
-  [anyone|plyr, "tavernkeeper_talk", [(neq, "$cheat_mode", 0),],
+###(((location_ransom_broker
+  [anyone|plyr, "tavernkeeper_talk", [],
     "I am looking for ransom brokers...", "tavernkeeper_ransom_broker_location", []],
 
   [anyone, "tavernkeeper_ransom_broker_location",
@@ -20704,20 +20704,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ], "I am sorry, I don't know where they are.", "tavernkeeper_pretalk", []],
 
   [anyone, "tavernkeeper_ransom_broker_location", [],
-    "I know where they are nearby. For 60 denars, I'll tell you.", "tavernkeeper_ransom_broker_location_ask_money", []],
-
-  [anyone|plyr, "tavernkeeper_ransom_broker_location_ask_money",
-    [
-      (store_troop_gold, ":cur_gold", "trp_player"),
-      (ge, ":cur_gold", 60),
-    ],
-    "All right. Here is 60 denars.", "tavernkeeper_ransom_broker_location_tell",
-    [
-      (troop_remove_gold, "trp_player", 60),
-    ]],
-
-  [anyone|plyr, "tavernkeeper_ransom_broker_location_ask_money", [],
-    "Never mind.", "tavernkeeper_pretalk", []],
+    "I know where they are nearby. Let me tell you.", "tavernkeeper_ransom_broker_location_tell", []],
 
   [anyone, "tavernkeeper_ransom_broker_location_tell", [], "You can find them at {s11}.", "tavernkeeper_pretalk",
     [
@@ -20744,8 +20731,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ]],
   ###)))
 
-  ###(((location_tavern_traveler
-  [anyone|plyr, "tavernkeeper_talk", [(neq, "$cheat_mode", 0),],
+###(((location_tavern_traveler
+  [anyone|plyr, "tavernkeeper_talk", [],
     "I am looking for travelers...", "tavernkeeper_tavern_traveler_location", []],
 
   [anyone, "tavernkeeper_tavern_traveler_location",
@@ -20762,20 +20749,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ], "I am sorry, I don't know where they are.", "tavernkeeper_pretalk", []],
 
   [anyone, "tavernkeeper_tavern_traveler_location", [],
-    "I know where they are nearby. For 30 denars, I'll tell you.", "tavernkeeper_tavern_traveler_location_ask_money", []],
-
-  [anyone|plyr, "tavernkeeper_tavern_traveler_location_ask_money",
-    [
-      (store_troop_gold, ":cur_gold", "trp_player"),
-      (ge, ":cur_gold", 30),
-    ],
-    "All right. Here is 30 denars.", "tavernkeeper_tavern_traveler_location_tell",
-    [
-      (troop_remove_gold, "trp_player", 30),
-    ]],
-
-  [anyone|plyr, "tavernkeeper_tavern_traveler_location_ask_money", [],
-    "Never mind.", "tavernkeeper_pretalk", []],
+    "I know where they are nearby. Let me tell you.", "tavernkeeper_tavern_traveler_location_tell", []],
 
   [anyone, "tavernkeeper_tavern_traveler_location_tell", [], "You can find them at {s11}.", "tavernkeeper_pretalk",
    [
@@ -21165,7 +21139,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      ]],
 
   ###(((tavern_traveler_companion_new
-  [anyone|plyr, "tavern_traveler_talk", [(neq, "$cheat_mode", 0),],
+  [anyone|plyr, "tavern_traveler_talk", [],
     "I am looking for someone could work for me...", "tavern_traveler_companion_new", []],
 
   [anyone, "tavern_traveler_companion_new", [],
@@ -21194,25 +21168,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (troop_slot_ge, "$temp", slot_troop_cur_center, 1),
       (str_store_troop_name, s15, "$temp"),
     ],
-    "I guess I know where {s15} is. For 30 denars, I'll tell you.", "tavern_traveler_companion_new_ask_money", []],
+    "I guess I know where {s15} is.", "tavern_traveler_companion_new_tell",
+    []],
 
   [anyone, "tavern_traveler_companion_new_ask_2",
     [
       (str_store_troop_name, s15, "$temp"),
     ],
     "I don't know where {s15} is.", "tavern_traveler_pretalk", []],
-
-  [anyone|plyr, "tavern_traveler_companion_new_ask_money",
-    [
-      (store_troop_gold, ":cur_gold", "trp_player"),
-      (ge, ":cur_gold", 30),
-    ], "All right. Here is 30 denars.", "tavern_traveler_companion_new_tell",
-    [
-      (troop_remove_gold, "trp_player", 30),
-    ]],
-
-  [anyone|plyr, "tavern_traveler_companion_new_ask_money", [],
-    "Never mind.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_companion_new_tell", [],
     "{s15} is currently at {s11}.", "tavern_traveler_pretalk",
@@ -21225,7 +21188,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ###)))
 
   ###(((location_bookseller
-  [anyone|plyr, "tavern_traveler_talk", [(neq, "$cheat_mode", 0),],
+  [anyone|plyr, "tavern_traveler_talk", [],
     "I am looking for book merchants...", "tavern_traveler_bookseller_location", []],
 
   [anyone, "tavern_traveler_bookseller_location",
@@ -21240,21 +21203,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ], "I am sorry, I don't know where they are.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_bookseller_location", [],
-    "I know where they are. For 30 denars, I'll tell you.", "tavern_traveler_bookseller_location_ask_money", []],
-
-  [anyone|plyr, "tavern_traveler_bookseller_location_ask_money",
-    [
-      (store_troop_gold, ":cur_gold", "trp_player"),
-      (ge, ":cur_gold", 30),
-    ], "All right. Here is 30 denars.", "tavern_traveler_bookseller_location_tell",
-    [
-      (troop_remove_gold, "trp_player", 30),
-    ]],
-
-  [anyone|plyr, "tavern_traveler_bookseller_location_ask_money", [],
-    "Never mind.", "tavern_traveler_pretalk", []],
-
-  [anyone, "tavern_traveler_bookseller_location_tell", [],
     "You can find them at {s11}.", "tavern_traveler_pretalk",
     [
       (assign, ":num_towns", 0),
@@ -21277,8 +21225,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ]],
   ###)))
 
-  ###(((location_minstrel
-  [anyone|plyr, "tavern_traveler_talk", [(neq, "$cheat_mode", 0),],
+###(((location_minstrel
+  [anyone|plyr, "tavern_traveler_talk", [],
     "I am looking for minstrels...", "tavern_traveler_minstrel_location", []],
 
   [anyone, "tavern_traveler_minstrel_location",
@@ -21293,19 +21241,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ], "I am sorry, I don't know where they are.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_minstrel_location", [],
-    "I know where they are. For 30 denars, I'll tell you.", "tavern_traveler_minstrel_location_ask_money", []],
-
-  [anyone|plyr, "tavern_traveler_minstrel_location_ask_money",
-    [
-      (store_troop_gold, ":cur_gold", "trp_player"),
-      (ge, ":cur_gold", 30),
-    ], "All right. Here is 30 denars.", "tavern_traveler_minstrel_location_tell",
-    [
-      (troop_remove_gold, "trp_player", 30),
-    ]],
-
-  [anyone|plyr, "tavern_traveler_minstrel_location_ask_money", [],
-    "Never mind.", "tavern_traveler_pretalk", []],
+    "I know where they are. Let me tell you.", "tavern_traveler_minstrel_location_tell", []],
 
   [anyone, "tavern_traveler_minstrel_location_tell", [],
     "You can find them at {s11}.", "tavern_traveler_pretalk",
