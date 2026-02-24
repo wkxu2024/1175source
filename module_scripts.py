@@ -13884,7 +13884,7 @@ scripts = [
 
       (assign, ":limit", 0),
       (store_skill_level, ":skill", "skl_prisoner_management", ":troop_no"),
-      (store_mul, ":limit", ":skill", 5),
+      (store_mul, ":limit", ":skill", 99),
       (assign, reg0, ":limit"),
       (set_trigger_result, reg0),
   ]),
@@ -24994,13 +24994,13 @@ scripts = [
       (try_end),
       (assign, "$g_player_party_morale_modifier_party_size", ":num_men"),
 
-      (store_skill_level, ":player_leadership", "skl_leadership", "trp_player"),
+      (store_skill_level, ":player_leadership", "skl_leadership", "trp_player"),# Store player's leadership skill level into ":player_leadership"
 
       (try_begin),
         (eq, "$players_kingdom", "fac_player_supporters_faction"),
         (faction_get_slot, ":cur_faction_king", "$players_kingdom", slot_faction_leader),
         (eq, ":cur_faction_king", "trp_player"),
-        (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 15),
+        (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 15),# When player is king, leadership adds 15 morale per level, otherwise adds 12
       (else_try),
         (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 12),
       (try_end),
@@ -25008,7 +25008,7 @@ scripts = [
       (assign, ":new_morale", "$g_player_party_morale_modifier_leadership"),
       (val_sub, ":new_morale", "$g_player_party_morale_modifier_party_size"),
 
-      (val_add, ":new_morale", 50),# 基础士气50
+      (val_add, ":new_morale", 99),# 基础士气50
 
       (assign, "$g_player_party_morale_modifier_food", 0),
       (try_for_range, ":cur_edible", food_begin, food_end),

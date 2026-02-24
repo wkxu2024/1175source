@@ -21203,6 +21203,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     ], "I am sorry, I don't know where they are.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_bookseller_location", [],
+    "I know where they are. Let me tell you.", "tavern_traveler_bookseller_location_tell", []],
+
+  [anyone, "tavern_traveler_bookseller_location_tell", [],
     "You can find them at {s11}.", "tavern_traveler_pretalk",
     [
       (assign, ":num_towns", 0),

@@ -1999,12 +1999,14 @@ dlga_tavernkeeper_job_result:tavernkeeper_job_result_2|当 然 也 有 别 的 �
 dlga_tavernkeeper_job_result_2:close_window|我 帮 您 留 意 着 其 他 机 会 吧 ， 你 可 以 过 些 日 子 再 来 问 问 。
 dlga_tavernkeeper_talk:tavernkeeper_ransom_broker_location|我 正 在 寻 找 赎 金 掮 客 … …
 dlga_tavernkeeper_ransom_broker_location:tavernkeeper_pretalk|抱 歉 ， 我 不 知 道 他 们 在 哪 。
+dlga_tavernkeeper_ransom_broker_location:tavernkeeper_ransom_broker_location_tell|我 知 道 他 们 在 哪 。 让 我 告 诉 你 。
 dlga_tavernkeeper_ransom_broker_location:tavernkeeper_ransom_broker_location_ask_money|我 知 道 他 们 在 附 近 哪 里 。 付 我 60第 纳 尔 ， 我 就 透 个 信 儿 。
 dlga_tavernkeeper_ransom_broker_location_ask_money:tavernkeeper_ransom_broker_location_tell|好 的 ， 这 是 60第 纳 尔 。
 dlga_tavernkeeper_ransom_broker_location_ask_money:tavernkeeper_pretalk|算 了 ， 不 问 了 。
 dlga_tavernkeeper_ransom_broker_location_tell:tavernkeeper_pretalk|你 能 在 {s11}找 到 他 们 。
 dlga_tavernkeeper_talk:tavernkeeper_tavern_traveler_location|我 正 在 寻 找 旅 行 者 … …
 dlga_tavernkeeper_tavern_traveler_location:tavernkeeper_pretalk|抱 歉 ， 这 我 不 太 清 楚 。
+dlga_tavernkeeper_tavern_traveler_location:tavernkeeper_tavern_traveler_location_tell|我 知 道 他 们 在 哪 。 让 我 告 诉 你 。
 dlga_tavernkeeper_tavern_traveler_location:tavernkeeper_tavern_traveler_location_ask_money|我 知 道 他 们 在 附 近 哪 里 。 付 我 30第 纳 尔 ， 我 就 告 诉 你 。
 dlga_tavernkeeper_tavern_traveler_location_ask_money:tavernkeeper_tavern_traveler_location_tell|好 的 ， 这 是 30第 纳 尔 。
 dlga_tavernkeeper_tavern_traveler_location_ask_money:tavernkeeper_pretalk|算 了 ， 不 问 了 。
@@ -2078,6 +2080,7 @@ dlga_tavern_traveler_talk:tavern_traveler_companion_new|我 正 在 寻 找 一 
 dlga_tavern_traveler_companion_new:tavern_traveler_companion_new_ask|也 许 我 能 帮 助 你 ， 你 在 找 谁 ？
 dlga_tavern_traveler_companion_new_ask:tavern_traveler_companion_new_ask_2|{s11}
 dlga_tavern_traveler_companion_new_ask:tavern_traveler_pretalk|算 了 ， 不 问 了 。
+dlga_tavern_traveler_companion_new_ask_2:tavern_traveler_companion_new_tell|我 猜 我 知 道 {s15}在 哪 里 。
 dlga_tavern_traveler_companion_new_ask_2:tavern_traveler_companion_new_ask_money|我 猜 我 知 道 {s15}在 哪 里 。 付 我 30第 纳 尔 ， 我 就 告 诉 你 。
 dlga_tavern_traveler_companion_new_ask_2:tavern_traveler_pretalk|我 不 知 道 {s15}在 哪 。
 dlga_tavern_traveler_companion_new_ask_money:tavern_traveler_companion_new_tell|可 以 ， 这 是 30第 纳 尔 。
@@ -2085,12 +2088,14 @@ dlga_tavern_traveler_companion_new_ask_money:tavern_traveler_pretalk|算 了 ，
 dlga_tavern_traveler_companion_new_tell:tavern_traveler_pretalk|{s15}现 在 在 {s11}。
 dlga_tavern_traveler_talk:tavern_traveler_bookseller_location|我 正 在 寻 找 书 籍 商 人 … …
 dlga_tavern_traveler_bookseller_location:tavern_traveler_pretalk|抱 歉 ， 我 不 知 道 他 们 在 哪 。
+dlga_tavern_traveler_bookseller_location:tavern_traveler_bookseller_location_tell|我 知 道 他 们 在 哪 。 让 我 告 诉 你 。
 dlga_tavern_traveler_bookseller_location:tavern_traveler_bookseller_location_ask_money|我 知 道 他 们 在 哪 。 付 我 30第 纳 尔 ， 我 就 告 诉 你 。
 dlga_tavern_traveler_bookseller_location_ask_money:tavern_traveler_bookseller_location_tell|好 的 ， 这 是 30第 纳 尔 。
 dlga_tavern_traveler_bookseller_location_ask_money:tavern_traveler_pretalk|算 了 ， 不 问 了 。
 dlga_tavern_traveler_bookseller_location_tell:tavern_traveler_pretalk|你 能 在 {s11}找 到 他 们 。
 dlga_tavern_traveler_talk:tavern_traveler_minstrel_location|我 正 在 寻 找 吟 游 诗 人 … …
 dlga_tavern_traveler_minstrel_location:tavern_traveler_pretalk|抱 歉 ， 我 不 知 道 他 们 在 哪 。
+dlga_tavern_traveler_minstrel_location:tavern_traveler_minstrel_location_tell|我 知 道 他 们 在 哪 。 让 我 告 诉 你 。
 dlga_tavern_traveler_minstrel_location:tavern_traveler_minstrel_location_ask_money|我 知 道 他 们 在 哪 。 付 我 30第 纳 尔 ， 我 就 告 诉 你 。
 dlga_tavern_traveler_minstrel_location_ask_money:tavern_traveler_minstrel_location_tell|好 的 ， 这 是 30第 纳 尔 。
 dlga_tavern_traveler_minstrel_location_ask_money:tavern_traveler_pretalk|算 了 ， 不 问 了 。
