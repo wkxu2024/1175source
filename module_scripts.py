@@ -4546,9 +4546,14 @@ scripts = [
       (assign, ":limit", 30),
       (store_skill_level, ":skill", "skl_leadership", ":troop_no"),
       (store_attribute_level, ":charisma", ":troop_no", ca_charisma),
-      (val_mul, ":skill", 5),
+      (val_mul, ":skill", 15),
       (val_add, ":limit", ":skill"),
       (val_add, ":limit", ":charisma"),
+
+      (try_begin),
+        (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
+        (val_add, ":limit", 100),
+      (try_end),
 
       (troop_get_slot, ":troop_renown", ":troop_no", slot_troop_renown),
       (store_div, ":renown_bonus", ":troop_renown", 25),
@@ -13829,10 +13834,10 @@ scripts = [
         #default limit is 10 for kingdom lords
         (assign, ":limit", 10),
 
-        #each (leadership level) gives 5 to limit
+        #each (leadership level) gives 15 to limit
         (store_skill_level, ":skill", "skl_leadership", ":party_leader"),
         (store_attribute_level, ":charisma", ":party_leader", ca_charisma),
-        (val_mul, ":skill", 5),
+        (val_mul, ":skill", 15),
         (val_add, ":limit", ":skill"),
 
         #each (charisma level) gives 1 to limit
