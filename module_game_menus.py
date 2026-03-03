@@ -15287,8 +15287,8 @@ game_menus = [
         ]),
       ###)))
       ###(((show_bandit_lair
-      ("show_bandit_lair",[],
-        "Show all bandit lairs.",
+      ("show_bandit_lair",[(gt,"$cheat_mode",0),],
+        "CHEAT: Show all bandit lairs.",
         [
           (try_for_parties, ":cur_party"),
             (party_get_slot, ":party_type", ":cur_party", slot_party_type),
